@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f5f5f5; padding: 20px;">
+    <h2 style="text-align: center;">Product List</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 80%; margin: 0 auto; background-color: white; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #333; color: white;">
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Quantity In Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr style="text-align: center;">
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.quantity_in_stock }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 10px;">No Products Found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% comment %} <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'list_categories' %}" style="padding: 10px 20px; background-color: #333; color: white; text-decoration: none;">View Categories</a>
+    </div> {% endcomment %}
+</body>
+</html>
