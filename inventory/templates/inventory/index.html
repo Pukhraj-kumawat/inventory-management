@@ -1,0 +1,10 @@
+{% extends 'inventory/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome to the E-commerce Inventory Management</h2>
+<p>Total Products: {{ total_products }}</p>
+<p>Total Categories: {{ total_categories }}</p>
+<a href="{% url 'product_register' %}">Add New Product</a><br>
+<a href="{% url 'category_register' %}">Add New Category</a>
+{% endblock %}
